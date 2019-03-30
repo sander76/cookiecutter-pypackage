@@ -76,66 +76,21 @@ For more details, see the `cookiecutter-pypackage tutorial`_.
 
 .. _`cookiecutter-pypackage tutorial`: https://cookiecutter-pypackage.readthedocs.io/en/latest/tutorial.html
 
-Not Exactly What You Want?
---------------------------
+Bootstrapping and dependency management.
+----------------------------------------
 
-Don't worry, you have options:
+Upgrade pip : python -m pip install --force pip
+Install pip tools: pip install pip-tools
 
-Similar Cookiecutter Templates
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Update the requirements text files:
 
-* `Nekroze/cookiecutter-pypackage`_: A fork of this with a PyTest test runner,
-  strict flake8 checking with Travis/Tox, and some docs and `setup.py` differences.
+pip-compile --upgrade --generate-hashes --output-file requirements.txt requirements.in
+pip-compile --upgrade --generate-hashes --output-file requirements_dev.txt requirements_dev.in
 
-* `tony/cookiecutter-pypackage-pythonic`_: Fork with py2.7+3.3 optimizations.
-  Flask/Werkzeug-style test runner, ``_compat`` module and module/doc conventions.
-  See ``README.rst`` or the `github comparison view`_ for exhaustive list of
-  additions and modifications.
+Installing packages:
 
-* `ardydedase/cookiecutter-pypackage`_: A fork with separate requirements files rather than a requirements list in the ``setup.py`` file.
+pip-sync requirements.txt requirements_dev.txt
 
-* `lgiordani/cookiecutter-pypackage`_: A fork of Cookiecutter that uses Punch_ instead of Bumpversion_ and with separate requirements files.
-
-* Also see the `network`_ and `family tree`_ for this repo. (If you find
-  anything that should be listed here, please add it and send a pull request!)
-  
-Support this Project
-~~~~~~~~~~~~~~~~~~~~~
-
-You can take our detailed course that covers all the features of this template, which has the added bonus of funding this project:
-
-.. image:: https://www.pydanny.com/static/packaging-course.jpg
-   :name: Creating and Distributing Python Packages image
-   :align: center
-   :alt: Creating and Distributing Python Packages
-   :target: https://twoscoopspress.thinkific.com/courses/creating-and-distributing-python-packages-es
-
-También disponible en español:
-
-.. image:: https://www.pydanny.com/static/packaging-course-es.jpg
-   :name: Creating and Distributing Python Packages ES image
-   :align: center
-   :alt: Creating and Distributing Python Packages ES
-   :target: https://twoscoopspress.thinkific.com/courses/creating-and-distributing-python-packages-es
-
-Fork This / Create Your Own
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-If you have differences in your preferred setup, I encourage you to fork this
-to create your own version. Or create your own; it doesn't strictly have to
-be a fork.
-
-* Once you have your own version working, add it to the Similar Cookiecutter
-  Templates list above with a brief description.
-
-* It's up to you whether or not to rename your fork/own version. Do whatever
-  you think sounds good.
-
-Or Submit a Pull Request
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-I also accept pull requests on this, if they're small, atomic, and if they
-make my own packaging experience better.
 
 
 .. _Travis-CI: http://travis-ci.org/
