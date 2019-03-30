@@ -12,3 +12,4 @@ click==6.7{% endif %}
 {% if cookiecutter.use_pytest == 'y' -%}
 pytest==3.8.2
 pytest-runner==4.2{% endif %}
+pip-tools==3.5.0
